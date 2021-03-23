@@ -1,0 +1,38 @@
+// the rock papaer scissors stratagy if statments----------------------------------------------------------------------------------
+
+//the if statments that run the rock, paper, scissors rules but with removal of health
+function dmg(){
+//Sword chosen-------------------------------------------------------------------------------------------------------------
+//the if for when the attacker goes against what it is stong against
+if( blue_weapon == "Sword" && red_weapon =="Axe"){blue_health = blue_health - 15; red_health = red_health - 35;}
+    
+//the if for when the attacker is going against its equeal
+if( blue_weapon == "Sword" && red_weapon =="Sword"){blue_health = blue_health - 20; red_health = red_health - 20;}
+
+//the if for when the attacker goes against its weakness
+if( blue_weapon == "Sword" && red_weapon =="Spear"){blue_health = blue_health - 35; red_health = red_health - 15;}
+
+
+//Axe chosen---------------------------------------------------------------------------------------------------------------
+//the if for when the attacker goes against what it is stong against
+if( blue_weapon == "Axe" && red_weapon =="Sword"){blue_health = blue_health - 15; red_health = red_health - 35;}
+
+//the if for when the attacker is going against its equeal
+if( blue_weapon == "Axe" && red_weapon =="Axe"){blue_health = blue_health - 20; red_health = red_health - 20;}
+
+//the if for when the attacker goes against its weakness
+if( blue_weapon == "Axe" && red_weapon =="Spear"){blue_health = blue_health - 35; red_health = red_health - 15;}
+
+
+//Spear chosen--------------------------------------------------------------------------------------------------------------
+//the if for when the attacker goes against what it is stong against
+if( blue_weapon == "Spear" && red_weapon =="Axe"){blue_health = blue_health - 15; red_health = red_health - 35;}
+
+//the if for when the attacker is going against its equeal
+if( blue_weapon == "Spear" && red_weapon =="Spear"){blue_health = blue_health - 20; red_health = red_health - 20;}
+
+//the if for when the attacker goes against its weakness
+if( blue_weapon == "Spear" && red_weapon =="Sword"){blue_health = blue_health - 35; red_health = red_health - 15;}
+
+console.log(blue_health, red_health)
+}

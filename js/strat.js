@@ -1,4 +1,24 @@
-//canvas
+//
+function GameObject(name, image, health) {
+    this.name = name;
+    this.img = image; // this can be used to hold image filename
+    this.health = health;
+    this.x = 0; // initialised at 0 ***
+    this.y = 0; // initialised at 0 ***
+}
+    // Sprite
+    var image = new Image();
+    image.src = "./images/blue1.png"; // Frames 1 to 6
+
+    var image2 = new Image();
+    image2.src = "./images/red1.png"; // Frames 1 to 6
+// Default Player minion
+var player = new GameObject("blue", "blue1.png");
+
+// Gameobjects is a collection of the Actors within the game
+// this is an Array
+var gameobjects = [player, new GameObject("redNPC", "red1.png")];
+//canvas-----------------------------------------------------------------------------------------------------
 
 // get a handle to the canvas context
 var canvas = document.getElementById("the_canvas");
@@ -19,14 +39,15 @@ var red_health = 100;
 
 // the rock papaer scissors stratagy if statments----------------------------------------------------------------------------------
 
+
 //the if statments that run the rock, paper, scissors rules but with removal of health
-function update(){
-    console.log()
-    
+//mechanic
+
+function gameRules(){
 //Sword chosen-------------------------------------------------------------------------------------------------------------
 //the if for when the attacker goes against what it is stong against
 if( blue_weapon == "Sword" && red_weapon =="Axe"){blue_health = blue_health - 15; red_health = red_health - 35;}
-
+    
 //the if for when the attacker is going against its equeal
 if( blue_weapon == "Sword" && red_weapon =="Sword"){blue_health = blue_health - 20; red_health = red_health - 20;}
 
@@ -36,13 +57,13 @@ if( blue_weapon == "Sword" && red_weapon =="Spear"){blue_health = blue_health - 
 
 //Axe chosen---------------------------------------------------------------------------------------------------------------
 //the if for when the attacker goes against what it is stong against
-if( blue_weapon == "Axe" && red_weapon =="Spear"){blue_health = blue_health - 15; red_health = red_health - 35;}
+if( blue_weapon == "Axe" && red_weapon =="Sword"){blue_health = blue_health - 15; red_health = red_health - 35;}
 
 //the if for when the attacker is going against its equeal
 if( blue_weapon == "Axe" && red_weapon =="Axe"){blue_health = blue_health - 20; red_health = red_health - 20;}
 
 //the if for when the attacker goes against its weakness
-if( blue_weapon == "Axe" && red_weapon =="Sword"){blue_health = blue_health - 35; red_health = red_health - 15;}
+if( blue_weapon == "Axe" && red_weapon =="Spear"){blue_health = blue_health - 35; red_health = red_health - 15;}
 
 
 //Spear chosen--------------------------------------------------------------------------------------------------------------
@@ -50,16 +71,22 @@ if( blue_weapon == "Axe" && red_weapon =="Sword"){blue_health = blue_health - 35
 if( blue_weapon == "Spear" && red_weapon =="Axe"){blue_health = blue_health - 15; red_health = red_health - 35;}
 
 //the if for when the attacker is going against its equeal
-if( blue_weapon == "Spear" && red_weapon =="Sword"){blue_health = blue_health - 20; red_health = red_health - 20;}
+if( blue_weapon == "Spear" && red_weapon =="Spear"){blue_health = blue_health - 20; red_health = red_health - 20;}
 
 //the if for when the attacker goes against its weakness
-if( blue_weapon == "Spear" && red_weapon =="Spear"){blue_health = blue_health - 35; red_health = red_health - 15;}
+if( blue_weapon == "Spear" && red_weapon =="Sword"){blue_health = blue_health - 35; red_health = red_health - 15;}
 
 console.log(blue_health, red_health)
 }
 
-//the function that assigns the chosen weapon to as players weapon--------------------------------------------
+//the update of the game----------------------------------------------------------------------------------------
+function update(){
 
+
+}
+
+//the function that assigns the chosen weapon to as players weapon--------------------------------------------
+//button clicks
 function buttonOnClickSword()
 {
  blue_weapon = "Sword";
@@ -78,22 +105,47 @@ function buttonOnClickSpear()
  update();
 }
 
-//Win, Lose, Tie Conditions--------------------------------------------------------------
+//the draw and frames---------------------------------------------------------------------------------
 
-// when the blue wins and red loses
-if( blue_health > 0 && red_health <= 0){
-    clear.canvas;
-    "Blue is victorious";
- }
+// Total Frames
+var frames = 4;
 
-//when the blue loses and red wins
-if( blue_health <= 0 && red_health < 0){
-    clear.canvas;
-    "Red is victorious";
- }
+// Current Frame
+var currentFrame = 0;
 
- //when  tie
- if( blue_health <= 0 && red_health <= 0){
-    clear.canvas;
-    "Your stratgies at war were to evenly matched, leaving no victor";
- }
+// Initial time set
+var initial = new Date().getTime();
+var current; // current time
+
+function animate() {
+    current = new Date().getTime(); // update current
+    if (current - initial >= 150) { // check is greater that 500 ms
+        currentFrame = (currentFrame + 1) % frames; // update frame
+        initial = current; // reset initial
+       
+    } 
+}
+
+// Draw GameObjects to Console
+// Modify to Draw to Screen
+function draw() {
+    // Clear Canvas
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+        context.drawImage(image,(image.width / 4) * currentFrame, 0, 30 , 30, 300, 350, 60, 60);
+        context.drawImage(image2,(image2.width / 4) * currentFrame, 0, 30, 30, 600, 350, 60, 60);
+         animate(); 
+
+    }
+
+
+//gameloop--------------------------------------------------------------------------------------------------------------
+function gameloop() {
+    update();
+    draw();
+
+    window.requestAnimationFrame(gameloop);
+}
+
+// Handle Active Browser Tag Animation
+window.requestAnimationFrame(gameloop);
