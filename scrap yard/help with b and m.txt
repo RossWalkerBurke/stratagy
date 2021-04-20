@@ -1,0 +1,113 @@
+// The GamerInput is an Object that holds the Current
+// GamerInput (Left, Right, Up, Down)
+function GamerInput(input) {
+    this.action = input; // Hold the current input as a string
+}
+
+// Default GamerInput is set to None
+var gamerInput = new GamerInput("None"); //No Input
+
+function input(event) {
+    // Take Input from the Player
+    // console.log("Input");
+    // console.log("Event type: " + event.type);
+    console.log("Keycode: " + event.keyCode);
+
+    if (event.type === "keydown") {
+        switch (event.keyCode) {
+            case 37: // Left Arrow
+                gamerInput = new GamerInput("Left");
+                break; //Left key
+            case 38: // Up Arrow
+                gamerInput = new GamerInput("Up");
+                break; //Up key
+            case 39: // Right Arrow
+                gamerInput = new GamerInput("Right");
+                break; //Right key
+            case 40: // Down Arrow
+                gamerInput = new GamerInput("Down");
+                break; //Down key
+            default:
+                gamerInput = new GamerInput("None"); //No Input
+        }
+
+        // my keypress code for game
+        //this will do right and stop for button mash to play the game
+
+        //if (event.type === "keyPress") {
+        //    switch (event.keyCode) {
+           // case 39: // Right Arrow
+          //      gamerInput = new GamerInput("Right");
+           //     break; //Right key
+         //   }
+       // }
+       
+    }
+     else {
+        gamerInput = new GamerInput("None"); //No Input
+    }
+    // console.log("Gamer Input :" + gamerInput.action);
+}
+
+//-----------------------------------------------------------------------------------------------------
+
+function movement() {
+    // Iterate through all GameObjects
+    // Updating position and gamestate
+
+    for (i = 0; i < gameobjects.length; i++) {
+
+        if (gamerInput.action === "Up") {
+            gameobjects[i].health = 100;
+            console.log("Up");
+        }
+        if (gamerInput.action === "Down") {
+            gameobjects[i].health = 100;
+            console.log("Down");
+        }
+        if (gamerInput.action === "Right") {
+            gameobjects[i].health = 100;
+            console.log("Right");
+        }
+        if (gamerInput.action === "Left") {
+            gameobjects[i].health = 100;
+            console.log("Left");
+        }
+
+        //this is my boarder contact code so that the sprite doesnt exit the screen
+        if(gameobjects[0].x < 0){
+            gameobjects[0].x += 1;
+        }
+        if(gameobjects[0].x > 1000){
+            gameobjects[0].x -= 1;
+        }
+        if(gameobjects[0].y > 0){
+            gameobjects[0].y -= 1;
+        }
+        if(gameobjects[0].y > 500){
+            gameobjects[0].y += 1;
+        }
+
+            // *** This is where X and Y are being updated
+            if (gamerInput.action === "Down") {
+                gameobjects[0].y += 1;
+                gameobjects[0].health = 100;
+                console.log("Down");
+            }
+            if (gamerInput.action === "Up") {
+                gameobjects[0].y -= 1;
+                gameobjects[0].health = 100;
+                console.log("Up");
+            }
+            if (gamerInput.action === "Right") {
+                gameobjects[0].x += 1;
+                gameobjects[0].health = 100;
+                console.log("Right");
+            }
+            if (gamerInput.action === "Left") {
+                gameobjects[0].x -= 1;
+                gameobjects[0].health = 100;
+                console.log("Left");
+            }
+    }
+}

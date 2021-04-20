@@ -1,0 +1,95 @@
+body{
+    background-color:#4d5a68;
+}
+
+h1{
+    background: whitesmoke;
+    padding: 20px;
+    color: #4d5a68; 
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.score-board{
+    margin: 20px auto;
+    border:3px solid whitesmoke;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    color: whitesmoke;
+    font-size: 46px;
+    padding:  15px 20px;
+    font-family: sans-serif;
+    position: relative;
+}
+
+.badge{
+    background: #053805;
+    color: whitesmoke;
+    font-size: 14px;
+    padding: 3px 10px;
+    font-family: sans-serif;
+}
+
+#player-label{
+position:absolute;
+top: 30px;
+left: -30px;
+}
+#computer-label{
+    position:absolute;
+    top: 30px;
+    right: -30px;
+}
+
+.result{
+    color: whitesmoke;
+    font-size: 40px;
+}
+.result > p{
+    text-align: center;
+    font-weight: bold;
+        font-family: sans-serif;
+}
+
+.choices{
+    text-align: center;
+    margin-top: 50px;
+}
+.choice{
+    display: inline-block;
+    border: 5px solid whitesmoke;
+    border-radius: 50%;
+    margin: 0px 30px;
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+.choice:hover{
+    cursor: pointer;
+    background:#212a33;
+}
+
+#action-message{
+    text-align: center;
+    color: whitesmoke;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.green-glow{
+border: 4px solid green;
+box-shadow: 0 0 10px green;
+}
+
+.red-glow{
+    border: 4px solid red;
+    box-shadow: 0 0 10px red;  
+}
+
+.white-glow{
+    border: 4px solid whitesmoke;
+        box-shadow: 0 0 10px whitesmoke;    
+}

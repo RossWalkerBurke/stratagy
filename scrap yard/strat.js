@@ -1,36 +1,25 @@
-//
-function GameObject(name, image, health) {
+function GameObject(name, image) {
     this.name = name;
     this.img = image; // this can be used to hold image filename
-    this.health = health;
     this.x = 0; // initialised at 0 ***
     this.y = 0; // initialised at 0 ***
 }
-    // Sprite
-    var image = new Image();
-    image.src = "./images/blue1.png"; // Frames 1 to 6
+// Setup image
+var image = new Image();
+image.src = "./images/blue1.png";
 
-    var image2 = new Image();
-    image2.src = "./images/red1.png"; // Frames 1 to 6
-// Default Player minion
-var player = new GameObject("blue", "blue1.png");
+// Default Player
+var player = new GameObject("Player", "blue1.png");
 
-// Gameobjects is a collection of the Actors within the game
-// this is an Array
-var gameobjects = [player, new GameObject("redNPC", "red1.png")];
 //canvas-----------------------------------------------------------------------------------------------------
-
 // get a handle to the canvas context
 var canvas = document.getElementById("the_canvas");
 // get 2D context for this canvas
 var context = canvas.getContext("2d");
-const width = canvas.width = 1000;
-const height = canvas.height = 500;
 
 //the varible that has the blue army and red army health tolal----------------------------------------------------------
 //blue is the attacker red is the defender
 var blue_health = 100;
-
 var red_health = 100;
 
 // the varible that is the weapon chosen-------------------------------------------------------------------------------
@@ -38,8 +27,6 @@ var red_health = 100;
  var red_weapon = "Sword";
 
 // the rock papaer scissors stratagy if statments----------------------------------------------------------------------------------
-
-
 //the if statments that run the rock, paper, scissors rules but with removal of health
 //mechanic
 
@@ -78,12 +65,35 @@ if( blue_weapon == "Spear" && red_weapon =="Sword"){blue_health = blue_health - 
 
 console.log(blue_health, red_health)
 }
+var newPosX = x;
+var newPosY = y;
 
 //the update of the game----------------------------------------------------------------------------------------
 function update(){
+  
+    
 
-
+  //the boundary
+    if(player.x < 0){
+        player.x += ;
+        console.log("left")
+    }
+    if(player.x > 1000){
+        player.x -= 0;
+        console.log("right")
+    }
+    if(player.y < 0){
+        player.y += 0;
+        console.log("top")
+    }
+    if(player.y > 275){
+        player.y -= 0;
+        console.log("bottom")
+    }
+    player.x += 1;
 }
+
+//-----------------------------------------------------------------------------------------------------
 
 //the function that assigns the chosen weapon to as players weapon--------------------------------------------
 //button clicks
@@ -132,12 +142,10 @@ function draw() {
     // Clear Canvas
     context.clearRect(0, 0, canvas.width, canvas.height);
 
-        context.drawImage(image,(image.width / 4) * currentFrame, 0, 30 , 30, 300, 350, 60, 60);
-        context.drawImage(image2,(image2.width / 4) * currentFrame, 0, 30, 30, 600, 350, 60, 60);
-         animate(); 
+    context.drawImage(image, (image.width / 4) * currentFrame, 0, 30, 30,  100-player.x, 300-player.y, 30, 30);
 
+    animate(); 
     }
-
 
 //gameloop--------------------------------------------------------------------------------------------------------------
 function gameloop() {
