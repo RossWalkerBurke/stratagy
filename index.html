@@ -21,6 +21,7 @@
   
 <body>
 
+<form action="./stratagy.html" method="GET" target="_blank">
 <!-- no canvas needed for the redesign of my game since there aren no moving or animation needed -->
 
 <h1>Rock, Paper, Scissors</h1>
@@ -62,6 +63,26 @@
 <footer>  
 </footer>
 
+<script>
+    function onPageLoad() {
+    var href = window.location.href;
+        alert(href);
+       
+        var protocol = window.location.protocol;
+        alert(protocol);
+       
+        var host = window.location.host;
+        alert(host);
+       
+       
+        var pathname = window.location.pathname;
+        alert(pathname);
+       
+        var search = window.location.search;
+        alert(search);
+       
+    }
+    </script>
 
 <script src="./js/app.js " charset="UTF-8"></script>
 </body>
