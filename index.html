@@ -1,41 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=4.0, user-scalable=yes">
 <title>rock paper scissors game</title>
 <link rel="stylesheet" href="css/indexStyle.css" >
+
+<!-- audio sound effects for win draw and lose on button click -->
+<audio id="winNoise">
+<source src="./assets/audio/win.mp3" type="audio/wav">
+</audio>
+<audio id="drawNoise">
+<source src="./assets/audio/draw.mp3" type="audio/wav">
+</audio>
+<audio id="loseNoise">
+<source  src="./assets/audio/lose.mp3" type="audio/wav">
+</audio>
 </head> 
   
 <body>
 
+<!-- no canvas needed for the redesign of my game since there aren no moving or animation needed -->
+
 <h1>Rock, Paper, Scissors</h1>
 
+<!-- Score board -->
 <div class="score-board">
     <div id="player-label" class="badge">player</div>
     <div id="computer-label" class="badge">comp</div>
-    <span id="player-score">0</span>:<span id="computer-score">0</span>
+    <span id="player-score"></span>:<span id="computer-score"></span>
 </div>
 
-<div class="result"><p>who will win?</p></div>
+<!-- Result -->
+<div class="result"><p>Who will Win?</p></div>
 
+<!-- players choices -->
 <div class="choices">
     <div class="choice" id="r">
-        <img src="assets/images/rock.png" alt=""> 
+        <img src="assets/images/rock.png" alt="failed to load images"> 
     </div>
     <div class="choice" id="p">
-        <img src="assets/images/paper.png" alt=""> 
+        <img src="assets/images/paper.png" alt="failed to load images"> 
     </div>
     <div class="choice" id="s">
-        <img src="assets/images/scissors.png" alt=""> 
+        <img src="assets/images/scissors.png" alt="failed to load images"> 
     </div>
 </div>
 
 <p id="action-message">Make your move</p>
 
-<script src="./js/app.js " charset="utf-8"></script>
+<!-- the reset button -->
+<div class="choices">
+    <div class="reset" id="reset">
+        <img src="assets/images/reset.png" alt="failed to load images"> 
+    </div>
+</div>
+
+<p id="action-message">Reset Score</p>
+
+<footer>  
+</footer>
+
+
+<script src="./js/app.js " charset="UTF-8"></script>
 </body>
-
-
 
 </html>

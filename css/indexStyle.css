@@ -2,6 +2,11 @@ body{
     background-color:#4d5a68;
 }
 
+img{
+    max-width: 100%;
+    height: auto;
+}
+
 h1{
     background: whitesmoke;
     padding: 20px;
@@ -79,6 +84,26 @@ left: -30px;
     margin-top: 20px;
 }
 
+#reset {
+    display: inline-block;
+    border: 5px solid whitesmoke;
+    border-radius: 50%;
+    margin: 0px 50px;
+    padding: 20px;
+    transition: all 0.3s ease;
+
+}
+
+#reset:hover {
+    cursor: pointer;
+    background:#212a33;
+}
+
+#reset:active {
+    border: 4px solid whitesmoke;
+        box-shadow: 0 0 10px whitesmoke;
+}
+
 .green-glow{
 border: 4px solid green;
 box-shadow: 0 0 10px green;
@@ -92,4 +117,128 @@ box-shadow: 0 0 10px green;
 .white-glow{
     border: 4px solid whitesmoke;
         box-shadow: 0 0 10px whitesmoke;    
+}
+
+footer {
+    background-color:whitesmoke;
+    text-align: center;
+    color: #4d5a68;
+    padding: 20px;
+}
+
+/* game size for the phone */
+@media screen and (max-width: 600px ){
+    
+    body{
+        background-color:#4d5a68;
+    }
+
+    img{
+        max-width: 50%;
+        height: auto;
+    }
+    
+    h1{
+        background: whitesmoke;
+        padding: 10px;
+        color: #4d5a68; 
+        text-align: center;
+        font-family: sans-serif;
+    }
+    
+    .score-board{
+        margin: 10px auto;
+        border:1.5px solid whitesmoke;
+        border-radius: 2.5px;
+        text-align: center;
+        width: 100px;
+        color: whitesmoke;
+        font-size: 23px;
+        padding:  7.5px 10px;
+        font-family: sans-serif;
+        position: relative;
+    }
+    
+    .badge{
+        background: #053805;
+        color: whitesmoke;
+        font-size: 7px;
+        padding: 1.5px 5px;
+        font-family: sans-serif;
+    }
+    
+    #player-label{
+    position:absolute;
+    top: 15px;
+    left: -20px;
+    }
+    #computer-label{
+        position:absolute;
+        top: 15px;
+        right: -20px;
+    }
+    
+    .result{
+        color: whitesmoke;
+        font-size: 20px;
+    }
+    .result > p{
+        text-align: center;
+        font-weight: bold;
+            font-family: sans-serif;
+    }
+    
+    .choices{
+        text-align: center;
+        margin-top: 30px;
+    }
+    .choice{
+        display: inline-block;
+        border: 2px solid whitesmoke;
+        border-radius: 50%;
+        margin: 0px 5px;
+        padding: 5px;
+        transition: all 0.3s ease;
+    }
+    
+    .choice:hover{
+        cursor: pointer;
+        background:#212a33;
+    }
+    
+    #action-message{
+        text-align: center;
+        color: whitesmoke;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 10px;
+        margin-top: 10px;
+    }
+    
+    #reset {
+        display: inline-block;
+        border: 2.5px solid whitesmoke;
+        border-radius: 50%;
+        margin: 0px 10px;
+        padding: 10px;
+        transition: all 0.3s ease;
+    
+    }
+    
+    #reset:hover {
+        cursor: pointer;
+        background:#212a33;
+    }
+    
+    #reset:active {
+        border: 4px solid whitesmoke;
+        box-shadow: 0 0 10px whitesmoke;
+    }
+
+    footer {
+        background-color:whitesmoke;
+        text-align: center;
+        color: #4d5a68;
+        padding: 10px;
+    }
 }
