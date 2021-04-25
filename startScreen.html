@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
-<title>start screen form</title>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 
 <head>
+    <title>Rock, Paper, Scissors Game start screen</title>
+
     <link rel="stylesheet" href="./css/indexStyle.css">
 </head>
 
 <body>
+
+    <h1>Rock, Paper, Scissors</h1>
 
 <form id="startScreen" action="https://rosswalkerburke.github.io/stratagy/index.html" method="GET" target="_blank">
 
 <!-- code to aid understanding
 <input type="text" name="q" value="pwa"> -->
 
-<input type="text" name="username" value="username">
+<!-- <input type="text" name="username" value="username">   // no reason for my mini game-->
 
-<button type="submit">play game</button>
+<button id="playGame" type="submit">Play Game</button>
 
 </form>
+
+<!-- on page load checks -->
 <script>
 function onPageLoad() {
 var href = window.location.href;
@@ -41,6 +45,7 @@ var href = window.location.href;
    
 }
 </script>
+
 </body>
 
 </html>

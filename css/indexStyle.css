@@ -2,6 +2,13 @@ body{
     background-color:#4d5a68;
 }
 
+#startScreen{
+    background-color:#4d5a68;
+    text-align: center;
+    margin-top: 300px;
+}
+
+
 img{
     max-width: 100%;
     height: auto;
@@ -127,11 +134,18 @@ footer {
 }
 
 /* game size for the phone */
-@media screen and (max-width: 600px ){
+@media screen and (max-width: 500px ){
     
     body{
         background-color:#4d5a68;
     }
+
+    #startScreen{
+        background-color:#4d5a68;
+        text-align: center;
+        margin: 200px;
+    }
+
 
     img{
         max-width: 50%;
